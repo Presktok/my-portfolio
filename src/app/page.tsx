@@ -88,11 +88,11 @@ export default function Home() {
                   </div>
                   
                   {/* Big Robot */}
-                  <div className="mobile-robot mx-auto floating-element pulse-ring my-6 sm:my-8">
+                  <div className="mobile-robot mx-auto floating-element pulse-ring my-8 sm:my-12">
                     <BigRobot />
                   </div>
                   
-                  <div className="pt-2 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4">
+                  <div className="pt-6 flex flex-col sm:flex-row gap-4 sm:gap-4 justify-center items-center px-4">
               <a
                 href="https://github.com/Presktok"
                 className="trading-button magnetic-button shimmer inline-block text-base sm:text-lg px-6 sm:px-8 py-3 w-full sm:w-auto text-center"

@@ -6,7 +6,7 @@ import { useState } from 'react'
 interface ProjectCardProps {
   title: string
   description: string
-  imageUrl: string
+  imageUrl?: string
   technologies: string[]
   liveUrl?: string
   githubUrl?: string
@@ -29,12 +29,21 @@ export default function ProjectCard({
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="relative h-48">
-        <Image
-          src={imageUrl}
-          alt={title}
-          fill
-          className="object-cover transition-transform duration-300 hover:scale-105"
-        />
+        {imageUrl ? (
+          <Image
+            src={imageUrl}
+            alt={title}
+            fill
+            className="object-cover transition-transform duration-300 hover:scale-105"
+          />
+        ) : (
+          <div className="w-full h-full bg-gradient-to-br from-[var(--accent-blue)]/20 to-purple-500/20 flex items-center justify-center">
+            <div className="text-center">
+              <div className="text-4xl mb-2">🚀</div>
+              <div className="text-sm text-gray-300">Project Preview</div>
+            </div>
+          </div>
+        )}
         {isHovered && (
           <div className="absolute inset-0 bg-[var(--background-rgb)]/80 backdrop-blur-sm flex items-center justify-center space-x-4">
             {liveUrl && (

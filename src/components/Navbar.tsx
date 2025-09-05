@@ -24,21 +24,21 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
             <Link href="/" className="text-xl font-bold text-white hover:text-[var(--accent-blue)] transition">
-              Portfolio
+              Prince Kumar
             </Link>
           </div>
           
           {/* Desktop menu */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
+              <Link href="#about" className="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition">
+                About
+              </Link>
               <Link href="#projects" className="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition">
                 Projects
               </Link>
               <Link href="#skills" className="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition">
                 Skills
-              </Link>
-              <Link href="#about" className="text-gray-300 hover:text-white px-3 py-2 text-sm font-medium transition">
-                About
               </Link>
               <Link 
                 href="#contact" 

@@ -9,9 +9,6 @@
   --card-background: rgba(31, 35, 46, 0.95);
   --accent-blue: rgb(41, 98, 255);
   --hover-blue: rgb(25, 82, 239);
-  --cursor-size: 8px;
-  --cursor-trail-size: 24px;
-  --cursor-ring-size: 32px;
 }
 
 body {
@@ -20,48 +17,7 @@ body {
   min-height: 100vh;
 }
 
-/* Custom cursor styles */
-.cursor-dot {
-  width: var(--cursor-size);
-  height: var(--cursor-size);
-  background: var(--accent-blue);
-  border-radius: 50%;
-  margin-left: calc(var(--cursor-size) / -2);
-  margin-top: calc(var(--cursor-size) / -2);
-  opacity: 0;
-}
 
-.cursor-trail {
-  width: var(--cursor-trail-size);
-  height: var(--cursor-trail-size);
-  background: radial-gradient(circle, rgba(41, 98, 255, 0.3) 0%, rgba(41, 98, 255, 0) 70%);
-  border-radius: 50%;
-  margin-left: calc(var(--cursor-trail-size) / -2);
-  margin-top: calc(var(--cursor-trail-size) / -2);
-  opacity: 0;
-}
-
-.cursor-ring {
-  width: var(--cursor-ring-size);
-  height: var(--cursor-ring-size);
-  border: 1px solid rgba(41, 98, 255, 0.5);
-  border-radius: 50%;
-  margin-left: calc(var(--cursor-ring-size) / -2);
-  margin-top: calc(var(--cursor-ring-size) / -2);
-  opacity: 0;
-  transition: width 0.2s, height 0.2s, margin 0.2s;
-}
-
-.cursor-hovering {
-  transform: scale(1.5);
-  background: var(--hover-blue);
-  mix-blend-mode: difference;
-}
-
-.ring-hovering {
-  --cursor-ring-size: 64px;
-  border-color: rgba(41, 98, 255, 0.8);
-}
 
 /* Smooth scrolling */
 html {
@@ -151,35 +107,11 @@ html {
   opacity: 0;
 }
 
-/* Section transitions */
-.section-enter {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
 
-.section-enter-active {
-  opacity: 1;
-  transform: translateY(0);
-}
 
-/* Professional hover effects */
-.hover-lift {
-  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-}
 
-.hover-lift:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(41, 98, 255, 0.15);
-}
 
-/* Glassmorphism effects */
-.glass-effect {
-  @apply backdrop-blur-sm bg-opacity-90;
-  background: rgba(31, 35, 46, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-}
+
 
 /* Text selection */
 ::selection {
@@ -236,11 +168,7 @@ html {
   }
 }
 
-/* Robot Cursor Styles */
-.robo-cursor {
-  animation: hover 2s ease-in-out infinite;
-  will-change: transform;
-}
+
 
 .robo-head {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
@@ -307,6 +235,442 @@ html {
   --delay: 0.1s;
 }
 
-.robo-cursor:hover .mouth {
-  transform: scaleX(1.2);
-} 
+
+
+
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Big Robot Animation */
+.robo-head {
+  transition: transform 0.3s ease-out;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.robo-head:hover {
+  transform: scale(1.05) rotateY(10deg);
+}
+
+.display {
+  transition: all 0.3s ease-out;
+}
+
+.display:hover {
+  background: #2a2a2a;
+}
+
+/* Enhanced Robot Animation */
+.robo-head {
+  transition: transform 0.3s ease-out;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.robo-head:hover {
+  transform: scale(1.05) rotateY(10deg);
+}
+
+/* Robot Eye Animation */
+@keyframes eyePulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+.animate-pulse {
+  animation: eyePulse 2s ease-in-out infinite;
+}
+
+/* Advanced Particle Effects */
+.particle-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(41, 98, 255, 0.6);
+  border-radius: 50%;
+  animation: particleFloat 8s linear infinite;
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Glowing Text Effect */
+.glow-text {
+  text-shadow: 
+    0 0 5px rgba(41, 98, 255, 0.5),
+    0 0 10px rgba(41, 98, 255, 0.3),
+    0 0 15px rgba(41, 98, 255, 0.2);
+  animation: textGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow {
+  from {
+    text-shadow: 
+      0 0 5px rgba(41, 98, 255, 0.5),
+      0 0 10px rgba(41, 98, 255, 0.3),
+      0 0 15px rgba(41, 98, 255, 0.2);
+  }
+  to {
+    text-shadow: 
+      0 0 10px rgba(41, 98, 255, 0.8),
+      0 0 20px rgba(41, 98, 255, 0.6),
+      0 0 30px rgba(41, 98, 255, 0.4);
+  }
+}
+
+/* Advanced Card Hover Effects */
+.advanced-card {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.advanced-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.6s;
+}
+
+.advanced-card:hover::before {
+  left: 100%;
+}
+
+.advanced-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(41, 98, 255, 0.3);
+}
+
+/* Magnetic Button Effect */
+.magnetic-button {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.magnetic-button:hover {
+  transform: translateY(-3px) scale(1.05);
+}
+
+/* Neon Border Animation */
+.neon-border {
+  position: relative;
+  border: 2px solid transparent;
+  background: linear-gradient(45deg, #2962ff, #3d7eff, #2962ff) border-box;
+  border-radius: 12px;
+  animation: neonPulse 2s ease-in-out infinite;
+}
+
+@keyframes neonPulse {
+  0%, 100% {
+    box-shadow: 
+      0 0 5px rgba(41, 98, 255, 0.5),
+      inset 0 0 5px rgba(41, 98, 255, 0.1);
+  }
+  50% {
+    box-shadow: 
+      0 0 20px rgba(41, 98, 255, 0.8),
+      0 0 30px rgba(41, 98, 255, 0.6),
+      inset 0 0 10px rgba(41, 98, 255, 0.2);
+  }
+}
+
+/* Floating Elements */
+.floating-element {
+  animation: floatUpDown 6s ease-in-out infinite;
+}
+
+@keyframes floatUpDown {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-10px) rotate(-1deg);
+  }
+}
+
+/* Gradient Border Animation */
+.gradient-border {
+  position: relative;
+  background: linear-gradient(45deg, #2962ff, #3d7eff, #b465da, #cf6cc9);
+  background-size: 400% 400%;
+  animation: gradientShift 3s ease infinite;
+  padding: 2px;
+  border-radius: 12px;
+}
+
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background: var(--card-background);
+  border-radius: 10px;
+  z-index: -1;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Typewriter Effect */
+.typewriter {
+  overflow: hidden;
+  border-right: 2px solid rgba(41, 98, 255, 0.75);
+  white-space: nowrap;
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: rgba(41, 98, 255, 0.75) }
+}
+
+/* Morphing Background */
+.morphing-bg {
+  background: linear-gradient(-45deg, #1a1a2e, #16213e, #0f3460, #1a1a2e, #2962ff);
+  background-size: 400% 400%;
+  animation: morphingGradient 15s ease infinite;
+}
+
+@keyframes morphingGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 3D Tilt Effect */
+.tilt-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.tilt-3d:hover {
+  transform: perspective(1000px) rotateX(10deg) rotateY(10deg) scale(1.05);
+}
+
+/* Shimmer Effect */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* Pulse Ring Effect */
+.pulse-ring {
+  position: relative;
+}
+
+.pulse-ring::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border: 2px solid rgba(41, 98, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulseRing 2s ease-out infinite;
+}
+
+@keyframes pulseRing {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.4);
+    opacity: 0;
+  }
+}
+
+/* Matrix Rain Effect */
+.matrix-rain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.1;
+}
+
+.matrix-column {
+  position: absolute;
+  top: -100%;
+  color: #00ff00;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  animation: matrixFall linear infinite;
+}
+
+@keyframes matrixFall {
+  0% { top: -100%; }
+  100% { top: 100vh; }
+}
+
+/* Mobile Responsive Improvements */
+@media (max-width: 768px) {
+  /* Reduce padding and margins for mobile */
+  .trading-card {
+    margin: 0.5rem;
+    padding: 1rem;
+  }
+  
+  /* Make text more readable on mobile */
+  .gradient-text {
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+  
+  /* Improve button sizing for touch */
+  .trading-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    min-height: 44px; /* iOS touch target minimum */
+  }
+  
+  /* Better form inputs for mobile */
+  .trading-input {
+    padding: 0.875rem;
+    font-size: 16px; /* Prevents zoom on iOS */
+    min-height: 44px;
+  }
+  
+  /* Improve badge sizing */
+  .badge-container {
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+  }
+  
+  /* Better spacing for mobile sections */
+  .mobile-section {
+    padding: 2rem 1rem;
+  }
+  
+  /* Improve grid layouts for mobile */
+  .mobile-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  /* Better hero section for mobile */
+  .mobile-hero {
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  /* Improve robot size for mobile */
+  .mobile-robot {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+  .gradient-text {
+    font-size: 1.75rem;
+  }
+  
+  .trading-card {
+    margin: 0.25rem;
+    padding: 0.75rem;
+  }
+  
+  .mobile-hero {
+    padding: 0.5rem;
+  }
+  
+  .mobile-robot {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+/* Landscape mobile orientation */
+@media (max-width: 768px) and (orientation: landscape) {
+  .mobile-hero {
+    padding: 0.5rem;
+  }
+  
+  .mobile-robot {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+ 

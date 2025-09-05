@@ -6,12 +6,14 @@ interface ParallaxSectionProps {
   children: React.ReactNode
   offset?: number
   className?: string
+  id?: string
 }
 
 export default function ParallaxSection({
   children,
   offset = 50,
-  className = ''
+  className = '',
+  id
 }: ParallaxSectionProps) {
   const sectionRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
@@ -44,7 +46,7 @@ export default function ParallaxSection({
   }, [offset])
 
   return (
-    <div ref={sectionRef} className={`relative overflow-hidden ${className}`}>
+    <div ref={sectionRef} id={id} className={`relative overflow-hidden ${className}`}>
       <div
         ref={contentRef}
         className="transform transition-transform duration-300 ease-out"

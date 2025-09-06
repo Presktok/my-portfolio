@@ -70,6 +70,19 @@ html {
   box-shadow: 0 6px 16px rgba(41, 98, 255, 0.3);
 }
 
+/* Mobile responsive adjustments */
+@media (max-width: 768px) {
+  .trading-button {
+    @apply px-3 py-1 text-sm;
+  }
+  
+  /* Fix for navbar transition issue on mobile */
+  nav.fixed.w-full.z-40.transition-all.duration-300 {
+    height: auto !important;
+    transition: background-color 0.3s, box-shadow 0.3s !important;
+  }
+}
+
 /* TradingView-style input */
 .trading-input {
   @apply w-full px-4 py-3 rounded-lg transition-all duration-300;

@@ -3,13 +3,8 @@ import Navbar from '../components/Navbar'
 import ProjectCard from '../components/ProjectCard'
 import SkillCard from '../components/SkillCard'
 import ParallaxSection from '../components/ParallaxSection'
-import InteractiveBackground from '../components/InteractiveBackground'
 import BigRobot from '../components/BigRobot'
-import ParticleBackground from '../components/ParticleBackground'
-import AnimatedBackground from '../components/AnimatedBackground'
-import MatrixRainBackground from '../components/MatrixRainBackground'
-import StarfieldBackground from '../components/StarfieldBackground'
-import HackerBackground from '../components/HackerBackground'
+import BackgroundManager from '../components/BackgroundManager'
 import ContactForm from '../components/ContactForm'
 
 const projects = [
@@ -72,12 +67,8 @@ const skills = [
 export default function Home() {
   return (
     <main className="min-h-screen text-white morphing-bg">
-      <StarfieldBackground />
-      <AnimatedBackground />
-      <MatrixRainBackground />
-      <ParticleBackground />
-      <InteractiveBackground />
-      <HackerBackground />
+      {/* Using BackgroundManager to conditionally render backgrounds based on device */}
+      <BackgroundManager />
       <Navbar />
       
                   {/* Hero Section */}

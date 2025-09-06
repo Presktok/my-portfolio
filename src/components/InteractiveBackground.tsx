@@ -23,10 +23,14 @@ export default function InteractiveBackground() {
 
     const ctx = canvas.getContext('2d')
     if (!ctx) return
+    
+    // Check if we're on mobile
+    const isMobile = window.innerWidth < 768
 
     // Set canvas size with device pixel ratio for sharp rendering
     const updateSize = () => {
-      const pixelRatio = window.devicePixelRatio || 1
+      // Use a lower pixel ratio on mobile for better performance
+      const pixelRatio = isMobile ? Math.min(window.devicePixelRatio, 1) : (window.devicePixelRatio || 1)
       canvas.width = window.innerWidth * pixelRatio
       canvas.height = window.innerHeight * pixelRatio
       canvas.style.width = `${window.innerWidth}px`
@@ -38,7 +42,8 @@ export default function InteractiveBackground() {
 
     // Create particles with professional color scheme
     const createParticles = () => {
-      const numberOfParticles = 80 // Reduced for better performance and cleaner look
+      // Reduce particle count on mobile for better performance
+      const numberOfParticles = isMobile ? 40 : 80 // Reduced for better performance and cleaner look
       particles.current = []
 
       const colors = [
@@ -53,9 +58,9 @@ export default function InteractiveBackground() {
         particles.current.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          size: Math.random() * 2 + 1,
-          speedX: (Math.random() - 0.5) * 0.3, // Slower, more subtle movement
-          speedY: (Math.random() - 0.5) * 0.3,
+          size: Math.random() * (isMobile ? 1.5 : 2) + 1,
+          speedX: (Math.random() - 0.5) * (isMobile ? 0.2 : 0.3), // Slower, more subtle movement
+          speedY: (Math.random() - 0.5) * (isMobile ? 0.2 : 0.3),
           baseColor: color.base,
           glowColor: color.glow,
           pulsePhase: Math.random() * Math.PI * 2,
@@ -78,7 +83,22 @@ export default function InteractiveBackground() {
     // Professional animation with smooth transitions
     let animationFrameId: number
     let time = 0
+    let lastFrameTime = 0
+    // Frame rate control - use lower FPS on mobile
+    const targetFPS = isMobile ? 30 : 60
+    const frameInterval = 1000 / targetFPS
+    
     const animate = () => {
+      const now = performance.now()
+      const elapsed = now - lastFrameTime
+      
+      // Throttle frame rate on mobile
+      if (elapsed < frameInterval) {
+        animationFrameId = requestAnimationFrame(animate)
+        return
+      }
+      
+      lastFrameTime = now - (elapsed % frameInterval)
       time += 0.01
       ctx.fillStyle = 'rgba(19, 23, 34, 0.15)' // Slower fade for smoother trails
       ctx.fillRect(0, 0, canvas.width, canvas.height)
@@ -120,15 +140,34 @@ export default function InteractiveBackground() {
         ctx.fill()
         ctx.shadowBlur = 0
 
-        // Draw professional connections
-        particles.current.forEach((otherParticle) => {
+        // Draw professional connections - optimized for mobile
+        // On mobile, only connect to nearby particles to reduce calculations
+        const connectionLimit = isMobile ? 3 : particles.current.length
+        const maxLineDistance = isMobile ? 100 : 120
+        
+        // Sort particles by distance to current particle for mobile optimization
+        let particlesToConnect = particles.current
+        if (isMobile) {
+          particlesToConnect = [...particles.current]
+            .map(p => ({
+              particle: p,
+              distance: Math.sqrt(Math.pow(p.x - particle.x, 2) + Math.pow(p.y - particle.y, 2))
+            }))
+            .filter(p => p.particle !== particle && p.distance < maxLineDistance)
+            .sort((a, b) => a.distance - b.distance)
+            .slice(0, connectionLimit)
+            .map(p => p.particle)
+        }
+        
+        particlesToConnect.forEach((otherParticle) => {
+          if (particle === otherParticle) return
+          
           const dx = particle.x - otherParticle.x
           const dy = particle.y - otherParticle.y
           const distance = Math.sqrt(dx * dx + dy * dy)
-          const maxLineDistance = 120
-
-          if (distance < maxLineDistance && particle !== otherParticle) {
-            const opacity = (1 - distance / maxLineDistance) * 0.5
+          
+          if (distance < maxLineDistance) {
+            const opacity = (1 - distance / maxLineDistance) * (isMobile ? 0.4 : 0.5)
             const gradient = ctx.createLinearGradient(
               particle.x, particle.y, 
               otherParticle.x, otherParticle.y
@@ -138,7 +177,7 @@ export default function InteractiveBackground() {
             
             ctx.beginPath()
             ctx.strokeStyle = gradient
-            ctx.lineWidth = 0.5
+            ctx.lineWidth = isMobile ? 0.3 : 0.5
             ctx.moveTo(particle.x, particle.y)
             ctx.lineTo(otherParticle.x, otherParticle.y)
             ctx.stroke()
@@ -168,4 +207,4 @@ export default function InteractiveBackground() {
       }}
     />
   )
-} 
+}

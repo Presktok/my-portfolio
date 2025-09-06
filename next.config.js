@@ -7,8 +7,8 @@ const nextConfig = {
   },
   reactStrictMode: true,
   swcMinify: true,
-  assetPrefix: process.env.NODE_ENV === 'production' ? '' : '',
-  basePath: process.env.NODE_ENV === 'production' ? '' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/my-portfolio' : '',
+  basePath: process.env.NODE_ENV === 'production' ? '/my-portfolio' : '',
 }
 
 module.exports = nextConfig

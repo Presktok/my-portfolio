@@ -1,12 +1,13 @@
 
 [build]
-  publish = ".next"
+  publish = "out"
   command = "npm run build"
 
 [build.environment]
   NODE_VERSION = "18"
   NETLIFY_NEXT_PLUGIN_SKIP = "true"
 
+# Handle 404 errors with a custom page
 [[redirects]]
   from = "/*"
   to = "/index.html"

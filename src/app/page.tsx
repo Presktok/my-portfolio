@@ -10,6 +10,7 @@ import AnimatedBackground from '../components/AnimatedBackground'
 import MatrixRainBackground from '../components/MatrixRainBackground'
 import StarfieldBackground from '../components/StarfieldBackground'
 import HackerBackground from '../components/HackerBackground'
+import ContactForm from '../components/ContactForm'
 
 const projects = [
   {
@@ -82,7 +83,7 @@ export default function Home() {
                   {/* Hero Section */}
             <ParallaxSection offset={0} className="min-h-screen flex items-center justify-center mobile-hero py-8 sm:py-16">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <div className="space-y-6 sm:space-y-8 animate-fade-in">
+                <div className="space-y-8 sm:space-y-10 animate-fade-in">
                   <div className="space-y-4 sm:space-y-6">
                     <h1 className="text-2xl sm:text-4xl lg:text-6xl font-bold gradient-text tracking-tight glow-text">
                       Hey, I'm Prince Kumar
@@ -96,7 +97,7 @@ export default function Home() {
                   </div>
                   
                   {/* Big Robot */}
-                  <div className="mobile-robot mx-auto floating-element pulse-ring my-8 sm:my-12">
+                  <div className="mobile-robot mx-auto floating-element pulse-ring my-8 sm:my-12 relative">
                     <BigRobot />
                   </div>
                   
@@ -301,59 +302,8 @@ export default function Home() {
           <h2 className="text-4xl sm:text-5xl font-bold mb-16 text-center gradient-text tracking-tight">
             Get In Touch
           </h2>
-          <div className="max-w-2xl mx-auto">
-            <div className="text-center mb-8">
-              <p className="text-xl text-gray-300 mb-2">Contact Information</p>
-              <p className="text-lg text-gray-400">☎️: +917078827522</p>
-              <p className="text-lg text-gray-400">📧: Princedobriyal326@gmail.com</p>
-            </div>
-            <form className="space-y-8 animate-fade-in">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  className="trading-input"
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  className="trading-input"
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={6}
-                  className="trading-input"
-                  required
-                ></textarea>
-              </div>
-              <div>
-                <button
-                  type="submit"
-                  className="trading-button w-full py-3 text-lg font-medium"
-                >
-                  Send Message
-                </button>
-              </div>
-            </form>
-          </div>
+          {/* Using the client component for the contact form */}
+          <ContactForm />
         </div>
       </ParallaxSection>
     </main>

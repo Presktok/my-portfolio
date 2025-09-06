@@ -77,7 +77,7 @@ export default function BigRobot() {
     <div 
       ref={robotRef}
       className="relative w-64 h-64 mx-auto my-8 transition-all duration-300"
-      style={{ transformStyle: 'preserve-3d' }}
+      style={{ transformStyle: 'preserve-3d', zIndex: 10 }}
     >
       {/* Robot Head */}
       <div className="relative transform-style-3d">
@@ -109,4 +109,4 @@ export default function BigRobot() {
       </div>
     </div>
   )
-} 
+}

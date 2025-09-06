@@ -6,6 +6,10 @@ import ParallaxSection from '../components/ParallaxSection'
 import InteractiveBackground from '../components/InteractiveBackground'
 import BigRobot from '../components/BigRobot'
 import ParticleBackground from '../components/ParticleBackground'
+import AnimatedBackground from '../components/AnimatedBackground'
+import MatrixRainBackground from '../components/MatrixRainBackground'
+import StarfieldBackground from '../components/StarfieldBackground'
+import HackerBackground from '../components/HackerBackground'
 
 const projects = [
   {
@@ -67,8 +71,12 @@ const skills = [
 export default function Home() {
   return (
     <main className="min-h-screen text-white morphing-bg">
+      <StarfieldBackground />
+      <AnimatedBackground />
+      <MatrixRainBackground />
       <ParticleBackground />
       <InteractiveBackground />
+      <HackerBackground />
       <Navbar />
       
                   {/* Hero Section */}
@@ -208,21 +216,27 @@ export default function Home() {
              Certifications & Badges
            </h2>
            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8 mobile-grid">
-            {/* Cyber Security Badge */}
+            {/* Cisco Ethical Hacker Badge */}
             <div className="trading-card p-6 text-center animate-fade-in">
               <a 
-                href="https://www.eccouncil.org/certified-ethical-hacker/" 
+                href="https://www.credly.com/badges/d2801f80-4c8c-4558-8e62-b647277ee539/public_url" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="block hover:scale-105 transition-transform duration-300"
               >
-                <div className="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-red-500/20 to-orange-500/20 rounded-full flex items-center justify-center">
-                  <span className="text-3xl">🛡️</span>
+                <div className="w-32 h-32 sm:w-48 sm:h-48 mx-auto mb-4 flex items-center justify-center overflow-hidden rounded-full border-4 border-blue-500 badge-container">
+                  <Image 
+                    src="/badges/ethical-hacker.png" 
+                    alt="Cisco Ethical Hacker Badge"
+                    width={200}
+                    height={200}
+                    className="object-cover w-full h-full"
+                  />
                 </div>
-                <h3 className="text-xl font-semibold mb-2 text-white">Cyber Security</h3>
-                <p className="text-gray-300 mb-3">Certified Ethical Hacker</p>
+                <h3 className="text-xl font-semibold mb-2 text-white">Ethical Hacker</h3>
+                <p className="text-gray-300 mb-3">Cisco Networking Academy</p>
                 <div className="text-sm text-[var(--accent-blue)] hover:text-blue-300 transition-colors">
-                  Security Specialist • Click to learn more
+                  Verified by Credly • Click to verify
                 </div>
               </a>
             </div>
@@ -344,4 +358,4 @@ export default function Home() {
       </ParallaxSection>
     </main>
   )
-} 
+}

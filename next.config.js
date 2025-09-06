@@ -7,8 +7,8 @@ const nextConfig = {
   },
   reactStrictMode: true,
   swcMinify: true,
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/my-portfolio' : '',
-  basePath: process.env.NODE_ENV === 'production' ? '/my-portfolio' : '',
+  // Remove basePath and assetPrefix for Netlify deployment
+  // These settings are causing issues with the Netlify deployment
 }
 
 module.exports = nextConfig

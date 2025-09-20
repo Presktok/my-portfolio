@@ -6,17 +6,36 @@ A modern, responsive portfolio website showcasing my skills, projects, and certi
 
 - **Responsive Design** - Works perfectly on desktop, tablet, and mobile devices
 - **Modern UI/UX** - Clean, professional design with smooth animations
-- **Interactive Elements** - Hover effects, particle background, and smooth scrolling
+- **Interactive Elements** - Hover effects, animated backgrounds, and smooth scrolling
 - **Project Showcase** - Detailed project cards with technologies used
 - **Skills Display** - Visual representation of technical skills
 - **Certifications & Badges** - Professional certifications with verification links
 - **Contact Information** - Easy ways to get in touch
 
+## 📁 Project Structure
+
+```
+├── css/
+│   ├── certificates.css    # Styles for certificates section
+│   ├── robot.css           # Styles for robot animation
+│   └── styles.css          # Main stylesheet
+├── images/
+│   ├── badges/             # Certification badges
+│   ├── projects/           # Project screenshots
+│   └── skills/             # Skill icons
+├── js/
+│   ├── backgrounds.js      # Background animation effects
+│   ├── data.js             # Project and skills data
+│   └── main.js             # Core functionality
+└── index.html             # Main HTML file
+```
+
 ## 🛠️ Technologies Used
 
-- **Frontend**: Next.js 14, React 18, TypeScript
-- **Styling**: Tailwind CSS, Custom CSS animations
-- **Deployment**: Netlify (Static Site Generation)
+- **Frontend**: HTML5, CSS3, JavaScript
+- **Backend**: Flask (Python)
+- **Styling**: Custom CSS animations
+- **Deployment**: Python web application hosting
 - **Version Control**: Git, GitHub
 
 ## 🎯 Key Projects
@@ -45,8 +64,8 @@ A modern, responsive portfolio website showcasing my skills, projects, and certi
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js (v18 or higher)
-- npm or yarn
+- Python 3.7 or higher
+- Any modern web browser
 
 ### Installation
 
@@ -58,24 +77,20 @@ A modern, responsive portfolio website showcasing my skills, projects, and certi
 
 2. **Install dependencies**
    ```bash
-   npm install
+   pip install -r requirements.txt
    ```
 
-3. **Run the development server**
+3. **Run the Flask application**
    ```bash
-   npm run dev
+   python app.py
    ```
 
-4. **Open your browser**
-   Navigate to [http://localhost:3000](http://localhost:3000)
+4. **Open the website**
+   Navigate to [http://localhost:5000](http://localhost:5000) in your web browser
 
-### Building for Production
+### Deployment
 
-```bash
-npm run build
-```
-
-The build artifacts will be stored in the `out/` directory.
+You can deploy this Flask application to platforms like Heroku, PythonAnywhere, or any other service that supports Python web applications.
 
 ## 📱 Mobile Responsive
 
@@ -87,10 +102,10 @@ The portfolio is fully responsive and optimized for:
 
 ## 🎨 Design Features
 
-- **Particle Background** - Interactive animated particles
+- **Animated Backgrounds** - Starfield, matrix rain, and particle animations
+- **Interactive Robot** - Animated robot character in hero section
 - **Smooth Scrolling** - Seamless navigation between sections
 - **Hover Effects** - Engaging interactive elements
-- **Gradient Animations** - Modern visual effects
 - **Professional Typography** - Clean, readable fonts
 
 ## 📞 Contact

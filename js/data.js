@@ -63,6 +63,21 @@ const skillsData = [
         description: "Building modern, responsive user interfaces with React."
     },
     {
+        name: "TypeScript",
+        icon: "images/skills/typescript.svg",
+        description: "Developing type-safe applications with TypeScript."
+    },
+    {
+        name: "Node.js",
+        icon: "images/skills/nodejs.svg",
+        description: "Creating server-side applications with Node.js."
+    },
+    {
+        name: "Docker",
+        icon: "images/skills/docker.svg",
+        description: "Containerizing applications for consistent deployment."
+    },
+    {
         name: "AWS",
         icon: "images/skills/aws.svg",
         description: "Deploying and securing applications on Amazon Web Services."

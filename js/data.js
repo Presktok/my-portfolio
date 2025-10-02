@@ -3,26 +3,19 @@
 // Projects data
 const projectsData = [
     {
-        title: "Secure Web Application",
-        description: "Developed a secure web application with authentication, authorization, and protection against common vulnerabilities.",
-        image: "images/projects/images.jpeg",
-        tags: ["Security", "Web Development", "JavaScript"],
-        github: "https://github.com/Presktok"
-    },
-    {
-        title: "Network Security Tool",
-        description: "Created a tool for network security analysis and vulnerability detection.",
+        title: "Access Shield",
+        description: "Enhanced webcam security authentication system with facial capture for unauthorized access attempts and cursor locking mechanism.",
         image: "images/projects/images (2).jpeg",
-        tags: ["Cybersecurity", "Python", "Networking"],
-        github: "https://github.com/Presktok"
+        tags: ["Python", "OpenCV", "Security", "GUI"],
+        github: "https://github.com/Presktok/Access_shield"
     },
-    {
-        title: "Cloud-Based Application",
-        description: "Designed and implemented a scalable cloud-based application with secure data storage.",
-        image: "images/projects/Picture4-scaled.jpg",
-        tags: ["Cloud", "AWS", "Security"],
-        github: "https://github.com/Presktok"
-    }
+    {title: "Inventory Management System",
+        description: "A full-stack inventory management system built with Flask and MongoDB, featuring RESTful API, user authentication, and comprehensive CRUD operations.",
+        image: "images/projects/images.jpeg",
+        tags: ["Flask", "MongoDB", "Python", "Full-Stack"],
+        github: "https://github.com/Presktok/Inventory_management"
+    },
+   
 ];
 
 // Skills data
